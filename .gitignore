@@ -2,3 +2,4 @@
 notebooks/heart_cleveland_upload.csv
 *__pycache__
 .idea
+data
