@@ -1,3 +1,4 @@
+import os
 import yaml
 import pytest
 
@@ -10,8 +11,8 @@ from ml_project.enities import (
     read_training_pipeline_params
 )
 
-
-DEFAULT_TEST_CONFIG_PATH = "../configs/train_config_knn.yaml"
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+DEFAULT_TEST_CONFIG_PATH = os.path.join(CURRENT_DIR, "../configs/train_config_knn.yaml")
 
 
 def read_schema(input_stream: Union[str, TextIO], schema):
