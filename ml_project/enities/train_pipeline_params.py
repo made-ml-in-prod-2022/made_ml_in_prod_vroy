@@ -13,6 +13,8 @@ class TrainPipelineParams:
     input_data_path: str
     output_model_path: str
     metric_path: str
+    input_test_path: str
+    output_predictions_path: str
     splitting_params: SplittingParams
     feature_params: FeatureParams
     train_params: TrainParams

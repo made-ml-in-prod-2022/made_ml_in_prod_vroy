@@ -1,8 +1,8 @@
 input_data_path: "data/train.csv"
-output_model_path: "models/dt_model.pkl"
-metric_path: "models/dt_metrics.json"
+output_model_path: "models/knn_model.pkl"
+metric_path: "models/knn_metrics.json"
 input_test_path: "data/test.csv"
-output_predictions_path: "models/dt_predictions.txt"
+output_predictions_path: "models/knn_predictions.txt"
 downloading_params:
   train_set_url: "https://drive.google.com/file/d/1oGsm_g0qKRduKanE3C1VCML0EM4CS3pm/view?usp=sharing"
   test_set_url:  "https://drive.google.com/file/d/1EsCpRTxWAHr06PdM9rVdHND4mRvrkGo1/view?usp=sharing"
@@ -11,12 +11,9 @@ splitting_params:
   val_size: 0.2
   random_state: 3
 train_params:
-  model_type: "DecisionTreeClassifier"
+  model_type: "KNeighborsClassifier"
   model_params:
-    criterion: "entropy"
-    max_depth: 7
-    min_samples_split: 5
-    random_state: 17
+    n_neighbors: 22
 feature_params:
   categorical_features:
     - "sex"

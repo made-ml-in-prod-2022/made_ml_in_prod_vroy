@@ -3,5 +3,6 @@ from dataclasses import dataclass
 
 @dataclass()
 class DownloadParams:
-    url: str
+    train_set_url: str
+    test_set_url: str
     output_filepath: str

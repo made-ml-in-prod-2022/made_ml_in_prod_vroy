@@ -4,8 +4,8 @@ import os
 from ml_project.data.make_dataset import download_data_from_gdrive
 
 
-DEFAULT_URL = "https://drive.google.com/file/d/1HhxadPquWB1JBGTV12KNkhhWD0hVnE1p/view?usp=sharing"
-DEFAULT_DOWNLADED_FILENAME = "heart_cleveland_upload.csv"
+DEFAULT_URL = "https://drive.google.com/file/d/1oGsm_g0qKRduKanE3C1VCML0EM4CS3pm/view?usp=sharing"
+DEFAULT_DOWNLADED_FILENAME = "train.csv"
 
 
 def test_can_download_file_from_gdrive(tmpdir):
