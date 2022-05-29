@@ -1,0 +1,8 @@
+*.ipynb_checkpoints
+*__pycache__
+*.idea
+lab1_ml_project/data
+lab1_ml_project/models/*.pkl
+lab1_ml_project/models/*.json
+lab1_ml_project/models/*.txt
+lab1_ml_project/notebooks/heart_cleveland_upload.csv

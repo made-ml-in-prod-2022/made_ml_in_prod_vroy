@@ -1,0 +1,27 @@
+input_data_path: "data/dataset.csv"
+output_model_path: "models/model.pkl"
+metric_path: "models/metrics.json"
+input_test_path: "data/test.csv"
+output_predictions_path: "models/predictions.txt"
+downloading_params:
+  train_set_url: "https://drive.google.com/file/d/some_file_in_google_drive1"
+  test_set_url: "https://drive.google.com/file/d/some_file_in_google_drive2"
+  train_set_path: "data/train.csv"
+  test_set_path: "data/test.csv"
+splitting_params:
+  val_size: 0.1
+  random_state: 15
+train_params:
+  model_type: "KNeighborsClassifier"
+  model_params:
+    n_neighbors: 3
+feature_params:
+  categorical_features:
+    - "sex"
+    - "cp"
+  numerical_features:
+    - "age"
+    - "trestbps"
+  features_to_drop:
+    - "thalach"
+  target_col: "condition"
