@@ -58,12 +58,6 @@ def evaluate_model(predicts: np.ndarray, target: pd.Series) -> Dict[str, float]:
     }
 
 
-def create_inference_pipeline(
-    model: SklearnClassificationModel, transformer: ColumnTransformer
-) -> Pipeline:
-    return Pipeline([("feature_part", transformer), ("model_part", model)])
-
-
 def save_metrics(metrics: dict, metric_path: str):
     with open(metric_path, "w") as metric_file:
         json.dump(metrics, metric_file)

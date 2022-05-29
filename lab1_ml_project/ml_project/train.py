@@ -37,11 +37,11 @@ def run_train_pipeline(training_pipeline_params):
     logger.info(f"Start train pipeline with params {training_pipeline_params}")
 
     downloading_params = training_pipeline_params.downloading_params
-    os.makedirs(os.path.dirname(downloading_params.output_filepath), exist_ok=True)
+    os.makedirs(os.path.dirname(downloading_params.train_set_path), exist_ok=True)
     logger.info(f"Downloading train set from {downloading_params.train_set_url}...")
     download_data_from_gdrive(
         downloading_params.train_set_url,
-        os.path.join(downloading_params.output_filepath, "train.csv")
+        downloading_params.train_set_path
     )
 
     data = read_data(training_pipeline_params.input_data_path)
@@ -67,9 +67,11 @@ def run_train_pipeline(training_pipeline_params):
     logger.info(f"metrics is {metrics}")
 
     logger.info(f"Save metrics to the file {training_pipeline_params.metric_path}")
+    os.makedirs(os.path.dirname(training_pipeline_params.metric_path), exist_ok=True)
     save_metrics(metrics, training_pipeline_params.metric_path)
 
     logger.info(f"Save model to the file {training_pipeline_params.output_model_path}")
+    os.makedirs(os.path.dirname(training_pipeline_params.output_model_path), exist_ok=True)
     save_model(model, training_pipeline_params.output_model_path)
 
 

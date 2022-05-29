@@ -6,7 +6,8 @@ output_predictions_path: "models/dt_predictions.txt"
 downloading_params:
   train_set_url: "https://drive.google.com/file/d/1oGsm_g0qKRduKanE3C1VCML0EM4CS3pm/view?usp=sharing"
   test_set_url:  "https://drive.google.com/file/d/1EsCpRTxWAHr06PdM9rVdHND4mRvrkGo1/view?usp=sharing"
-  output_filepath: "data/"
+  train_set_path: "data/train.csv"
+  test_set_path: "data/test.csv"
 splitting_params:
   val_size: 0.2
   random_state: 3

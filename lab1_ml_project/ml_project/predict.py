@@ -27,11 +27,11 @@ def predict_pipeline(config_path: str):
     training_pipeline_params = read_training_pipeline_params(config_path)
 
     downloading_params = training_pipeline_params.downloading_params
-    os.makedirs(os.path.dirname(downloading_params.output_filepath), exist_ok=True)
+    os.makedirs(os.path.dirname(downloading_params.test_set_path), exist_ok=True)
     logger.info(f"Downloading test set from {downloading_params.test_set_url}...")
     download_data_from_gdrive(
         downloading_params.test_set_url,
-        os.path.join(downloading_params.output_filepath, "test.csv")
+        downloading_params.test_set_path
     )
 
     test_data = read_data(training_pipeline_params.input_test_path)

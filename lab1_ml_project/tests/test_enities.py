@@ -23,7 +23,8 @@ def test_can_read_downloading_params():
     test_string = """
         train_set_url: "https://drive.google.com/url1"
         test_set_url: "https://drive.google.com/url2"
-        output_filepath: "data/"
+        train_set_path: "data/train.csv"
+        test_set_path: "data/test.csv"
     """
     try:
         params = read_schema(test_string, class_schema(DownloadParams))
@@ -32,7 +33,8 @@ def test_can_read_downloading_params():
 
     assert params.train_set_url == "https://drive.google.com/url1"
     assert params.test_set_url == "https://drive.google.com/url2"
-    assert params.output_filepath == "data/"
+    assert params.train_set_path == "data/train.csv"
+    assert params.test_set_path == "data/test.csv"
 
 
 def test_can_read_splitting_params():
