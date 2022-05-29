@@ -5,7 +5,7 @@ name: Python package ci
 
 on:
   push:
-    branches: [ main, homework1 ]
+    branches: [ main ]
   pull_request:
     branches: [ main ]
 
@@ -38,4 +38,4 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        PYTHONPATH=. pytest
+        PYTHONPATH=lab1_ml_project/ pytest
