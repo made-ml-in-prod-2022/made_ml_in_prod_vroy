@@ -11,6 +11,7 @@ from sklearn.pipeline import Pipeline
 
 import gdown
 
+DEFAULT_MODEL_URL = "https://drive.google.com/file/d/1Tra2izmch_9Fe9CU2gKm9pr7XmXJVqFj/view?usp=sharing"
 DEFAULT_HELLO_MESSAGE = "I'm glad to see you here!"
 MODEL_FEATURES = ['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach',
                   'exang', 'oldpeak', 'slope', 'ca', 'thal']
@@ -173,9 +174,7 @@ def create_model():
     model_path = 'model.pkl'
 
     if model_url is None:
-        err = f"MODEL_URL {model_url} is None"
-        logger.error(err)
-        raise RuntimeError(err)
+        model_url = DEFAULT_MODEL_URL
 
     download_model(model_url, model_path)
     model = load_model(model_path)
