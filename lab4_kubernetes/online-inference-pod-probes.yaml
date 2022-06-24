@@ -6,7 +6,7 @@ metadata:
     app: fastapi-ml-probes
 spec:
   containers:
-    - image: viktorroy/online_inference:v3
+    - image: viktorroy/online_inference:v2
       imagePullPolicy: Always
       name: fastapi-ml
       ports:
