@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fastapi-ml-probes
+  labels:
+    app: fastapi-ml-probes
+spec:
+  containers:
+    - image: viktorroy/online_inference:v3
+      imagePullPolicy: Always
+      name: fastapi-ml
+      ports:
+        - containerPort: 8000
+      resources:
+        requests:
+          memory: "100Mi"
+          cpu: "250m"
+        limits:
+          memory: "1000Mi"
+          cpu: "1000m"
+      readinessProbe:
+        httpGet:
+          path: /health
+          port: 8000
+        initialDelaySeconds: 15
+        periodSeconds: 3
+      livenessProbe:
+        httpGet:
+          path: /health
+          port: 8000
+        initialDelaySeconds: 40
+        periodSeconds: 3
