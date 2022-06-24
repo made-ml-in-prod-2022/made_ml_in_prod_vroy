@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: fastapi-ml-replicaset
+  labels:
+    app: fastapi-ml-replicaset
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: fastapi-ml
+  template:
+    metadata:
+      name: fastapi-ml
+      labels:
+        app: fastapi-ml
+    spec:
+      containers:
+        - image: viktorroy/online_inference:v1
+          imagePullPolicy: Always
+          name: fastapi-ml
+          ports:
+            - containerPort: 8000
