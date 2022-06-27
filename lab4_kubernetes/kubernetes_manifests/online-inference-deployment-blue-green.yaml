@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastapi-ml-deployment-blue-green
+  labels:
+    app: fastapi-ml-deployment-blue-green
+spec:
+  replicas: 6
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 6
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: fastapi-ml
+  template:
+    metadata:
+      name: fastapi-ml
+      labels:
+        app: fastapi-ml
+    spec:
+      containers:
+        - image: viktorroy/online_inference:v2
+          imagePullPolicy: Always
+          name: fastapi-ml
+          ports:
+            - containerPort: 8000
