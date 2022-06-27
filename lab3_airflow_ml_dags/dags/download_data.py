@@ -3,7 +3,6 @@ from datetime import timedelta
 
 from airflow import DAG
 from airflow.providers.docker.operators.docker import DockerOperator
-from airflow.utils.dates import days_ago
 from docker.types import Mount
 
 from constants import DEFAULT_ARGS, HOST_DATA_DIR, RAW_DATA_DIR, START_DATE
