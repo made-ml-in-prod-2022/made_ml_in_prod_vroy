@@ -10,6 +10,7 @@ x-environment: &airflow_environment
   - AIRFLOW__WEBSERVER__EXPOSE_CONFIG=True
   - AIRFLOW__CORE__FERNET_KEY=${FERNET_KEY}
   - AIRFLOW_VAR_HOST_DATA_DIR=${HOST_DATA_DIR}
+  - AIRFLOW_VAR_MODEL_PATH=${MODEL_PATH}
 
 
 x-airflow-image: &airflow_image apache/airflow:2.3.0-python3.8
@@ -70,12 +71,6 @@ services:
     environment: *airflow_environment
     command: scheduler
 
-  # ml_base:
-  #   build:
-  #     context: images/airflow-ml-base
-  #   image: airflow-ml-base
-  #   restart: "no"
-
   download:
     build:
       context: images/airflow-download
@@ -107,11 +102,11 @@ services:
     restart: "no"
 
 
-  # predict:
-  #   build:
-  #     context: images/airflow-predict
-  #   image: airflow-predict
-  #   restart: "no"
+  predict:
+    build:
+      context: images/airflow-predict
+    image: airflow-predict
+    restart: "no"
 
 
 volumes:

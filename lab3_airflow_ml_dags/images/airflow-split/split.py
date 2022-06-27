@@ -13,8 +13,8 @@ def split(input_dir: Path, output_dir: Path, test_size: float):
     train_df, test_df = train_test_split(data, test_size=test_size)
 
     os.makedirs(output_dir, exist_ok=True)
-    train_df.to_csv(output_dir / "train.csv")
-    test_df.to_csv(output_dir / "test.csv")
+    train_df.to_csv(output_dir / "train.csv", index=False)
+    test_df.to_csv(output_dir / "test.csv", index=False)
 
 
 def main():

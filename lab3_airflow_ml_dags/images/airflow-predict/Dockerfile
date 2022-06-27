@@ -4,5 +4,5 @@ RUN mkdir /build/
 COPY requirements.txt /build/requirements.txt
 RUN pip install -r /build/requirements.txt
 
-COPY download.py /download.py
-ENTRYPOINT ["python", "download.py"]
+COPY predict.py /predict.py
+ENTRYPOINT ["python", "predict.py"]
